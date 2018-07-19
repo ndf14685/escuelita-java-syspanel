@@ -1,1 +1,0 @@
-# escuelita-java-syspanel

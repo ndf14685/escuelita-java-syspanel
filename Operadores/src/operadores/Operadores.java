@@ -5,17 +5,17 @@ import escuelita.java.DTO.PacienteHospitalMunizDTO;;
 
 public class Operadores {
 
-	public static String RouteTxtOperator;
-	public static int LenghtFile=0;
+	public static String routeTxtOperator;
+	public static int lenghtFile=0;
 	public static final int POSITION_ID = 0;
-	public static File File;
-	public static String LineRead;
-	public static String[] TakenOperator; //cambiar el nombre de esta variable
+	public static File file;
+	public static String lineRead;
+	public static String[] takenOperator; //cambiar el nombre de esta variable
 	
-	public Operadores (String routeTxtOperator )
+	public Operadores (String RouteTxtOperator )
 	{
-		Operadores.RouteTxtOperator = routeTxtOperator;
-		File = new File(RouteTxtOperator);
+		Operadores.routeTxtOperator = RouteTxtOperator;
+		file = new File(routeTxtOperator);
 		try {
 			GetLenghtFile();
 		} catch (IOException e) {
@@ -27,22 +27,22 @@ public class Operadores {
 	
 	private void GetLenghtFile() throws IOException, FileNotFoundException
 	{	
-		FileReader Fr = new FileReader(File);
+		FileReader Fr = new FileReader(file);
 		BufferedReader Br = new BufferedReader(Fr);
-		while((LineRead = Br.readLine())!=null) {
-			LenghtFile++;
+		while((lineRead = Br.readLine())!=null) {
+			lenghtFile++;
 	    	}
 		Br.close();
 	}
 	public String [] GetIds() throws FileNotFoundException, IOException
 	{
 		String [] TakenIdArray;
-		FileReader Fr = new FileReader(File);
+		FileReader Fr = new FileReader(file);
 		BufferedReader Br = new BufferedReader(Fr);
-		TakenIdArray = new String [LenghtFile];
-		for (int i = 0; (LineRead = Br.readLine())!=null; i++) {
-			TakenOperator = LineRead.split(",");
-			TakenIdArray[i] = TakenOperator[POSITION_ID];
+		TakenIdArray = new String [lenghtFile];
+		for (int i = 0; (lineRead = Br.readLine())!=null; i++) {
+			takenOperator = lineRead.split(",");
+			TakenIdArray[i] = takenOperator[POSITION_ID];
 			
 		}
 	    Br.close();
@@ -51,15 +51,15 @@ public class Operadores {
 	public String [] DataByIds(String Id) throws FileNotFoundException, IOException
 	{
 		
-		FileReader Fr = new FileReader(File);
+		FileReader Fr = new FileReader(file);
 		BufferedReader Br = new BufferedReader(Fr);
-		while((LineRead = Br.readLine())!=null) {
-			TakenOperator = LineRead.split(",");
+		while((lineRead = Br.readLine())!=null) {
+			takenOperator = lineRead.split(",");
 			//TakenOperator = LineRead.split(",", 4)
-			if(TakenOperator[POSITION_ID].equals(Id))
+			if(takenOperator[POSITION_ID].equals(Id))
 			{
 				Br.close();
-				return TakenOperator;
+				return takenOperator;
 			}
 	    }
 		
@@ -68,10 +68,10 @@ public class Operadores {
 	}
 	public void ShowByConsole() throws FileNotFoundException, IOException
 	{
-		FileReader Fr = new FileReader(File);
+		FileReader Fr = new FileReader(file);
 		BufferedReader Br = new BufferedReader(Fr);
-		while((LineRead = Br.readLine())!=null) {
-			System.out.println(LineRead);
+		while((lineRead = Br.readLine())!=null) {
+			System.out.println(lineRead);
 	    	}
 		
 		Br.close();
@@ -91,9 +91,5 @@ public class Operadores {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}*/
-		
-		
-		
-		
 	}
 }
