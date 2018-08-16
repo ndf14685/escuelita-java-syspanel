@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/08/2018 17:29:47 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="tablas.Pelicula" table="pelicula" catalog="peliculas" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="genero" class="tablas.Genero" fetch="select">
+            <column name="genero_id" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="titulo" length="100" not-null="true" />
+        </property>
+        <property name="duracion" type="int">
+            <column name="duracion" not-null="true" />
+        </property>
+        <property name="director" type="string">
+            <column name="director" length="400" not-null="true" />
+        </property>
+        <property name="anio" type="int">
+            <column name="anio" not-null="true" />
+        </property>
+        <property name="fechaLanzamiento" type="date">
+            <column name="fecha_lanzamiento" length="10" not-null="true" />
+        </property>
+        <property name="puntuacion" type="java.lang.Integer">
+            <column name="puntuacion" />
+        </property>
+        <property name="poster" type="string">
+            <column name="poster" length="300" />
+        </property>
+        <property name="trama" type="string">
+            <column name="trama" length="700" />
+        </property>
+        <set name="actorPeliculas" table="actor_pelicula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pelicula_id" />
+            </key>
+            <one-to-many class="tablas.ActorPelicula" />
+        </set>
+    </class>
+</hibernate-mapping>
