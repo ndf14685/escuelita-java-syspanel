@@ -18,6 +18,15 @@
 			<artifactId>json-simple</artifactId>
 			<version>1.1</version>
 		</dependency>
+        
+		<!-- Hsql Database Connection -->
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<!-- <version>1.8.0.7</version> -->
+			<version>1.8.1.1</version>
+		</dependency>
+
         <!--test-->
 		<dependency>
 			<groupId>junit</groupId>
@@ -54,5 +63,22 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+        
+        <repository>
+            <id>mvnrepository</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>dos</id>
+            <url>http://repo.spring.io/plugins-release/</url>
+        </repository>
+        <repository>
+            <id>tres</id>
+            <url>http://repo.spring.io/libs-milestone/</url>
+        </repository>
+        <repository>
+            <id>cuatro</id>
+            <url>https://maven-eu.nuxeo.org/nexus/content/repositories/public-releases/</url>
+        </repository>
 	</repositories>
 </project>
