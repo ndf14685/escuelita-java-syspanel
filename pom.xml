@@ -27,6 +27,13 @@
 			<version>1.8.1.1</version>
 		</dependency>
 
+		<!-- Hibernate -->
+		<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>3.6.3.Final</version>
+		</dependency>
+            
         <!--test-->
 		<dependency>
 			<groupId>junit</groupId>
